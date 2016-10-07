@@ -1,0 +1,16 @@
+#!/bin/bash
+groupadd Doctor
+groupadd Patient
+groupadd Manager
+groupadd 'Health Care Worker'
+
+makeuser gloria Gloria  Manager
+makeuser linda Linda 'Health Care Worker'
+makeuser ian Ian 'Health Care Worker'
+makeuser mary Mary Doctor
+makeuser markus Markus Doctor
+makeuser margaret Margaret Patient
+makeuser george George Patient
+makeuser russell Russell Patient
+makeuser patricia Patricia Patient
+makeuser amangle Mangle Administrator

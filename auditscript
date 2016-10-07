@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# This is an audit script
+
+bash Assignment3
+
+su -c "mkdir /home/gloria/'Progress Reports'/prgRprt1" ian
+echo Now Gloria will try to remove the progress report that Ian made...
+su -c "rm /home/gloria/'Progress Reports'/prgRprt1" gloria

@@ -3,12 +3,38 @@ makeuser=./makeuser.sh
 groupadd Doctor
 groupadd Patient
 groupadd Manager
-groupadd Health_Care_Provider
+groupadd HealthCare
 groupadd Administrator
 
+mkdir /home/Personal
+setfacl -m g:Manager:rwx /home/Personal
+setfacl -m g:Patient:r /home/Personal
+setfacl -m g:HealthCare:rwx /home/Personal
+setfacl -m g:Doctor:rwx /home/Personal
+mkdir /home/'Care Plan'
+setfacl -m g:Manager:rwx /home/'Care Plan'
+setfacl -m g:Patient:r /home/'Care Plan'
+setfacl -m u::rwx,g:HealthCare:rwx /home/'Care Plan'
+setfacl -m u::r,g:HealthCare:r,o::- /home/'Care Plan'
+setfacl -m g:Doctor:rwx /home/'Care Plan'
+mkdir /home/'Progress Notes'
+setfacl -m g:Manager:rwx /home/'Progress Notes'
+setfacl -m g:Patient:r /home/'Progress Notes'
+setfacl -m g:HealthCare:rwx /home/'Progress Notes'
+setfacl -m g:Doctor:rwx /home/'Progress Notes'
+mkdir /home/'Medical Records'
+setfacl -m g:Manager:rwx /home/'Medical Records'
+setfacl -m g:Patient:r /home/'Medical Records'
+setfacl -m g:HealthCare:rwx /home/'Medical Records'
+setfacl -m g:Doctor:rwx /home/'Medical Records'
+mkdir /home/'Private Notes'/
+chown :Doctor /home/'Private Notes'/ 
+chmod 770 /home/'Private Notes'/
+setfacl -m g:Patient:r /home/'Private Notes'
+
 $makeuser gloria Gloria Manager
-$makeuser linda Linda Health_Care_Provider
-$makeuser ian Ian Health_Care_Provider
+$makeuser linda Linda HealthCare
+$makeuser ian Ian HealthCare
 $makeuser mary Mary Doctor
 $makeuser markus Markus Doctor
 $makeuser margaret Margaret Patient
